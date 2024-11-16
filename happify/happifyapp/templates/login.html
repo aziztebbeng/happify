@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login_signup.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>Happify!</h1>
+            <p>Your personal mental health buddy.</p>
+            <ul>
+                <li><img src="{% static 'accounts/icon1.png' %}" alt=""> Monitors your mental health</li>
+                <li><img src="{% static 'accounts/icon2.png' %}" alt=""> Makes you more active indoors or outdoors</li>
+                <li><img src="{% static 'accounts/icon3.png' %}" alt=""> Provides you a list of activities!</li>
+            </ul>
+        </div>
+        <div class="right-section">
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

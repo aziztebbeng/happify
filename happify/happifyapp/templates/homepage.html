@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+<body>
+    <aside>
+        <a href="{% url 'homepage' %}">Home</a>
+        <button id="openModal">Add Activity</button>
+        <a href="profile.html">Profile</a>
+    </aside>
+    
+    <main>
+        <h2>Menu</h2>
+        <a href="{% url 'preferences' %}">Preference</a>
+        <a href="#">About us</a>
+        <a href="{% url 'login' %}?logout=true">Log out</a>
+    </main>
+
+    <!-- Modal -->
+    <div id="activityModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add Activity</h2>
+            <form id="addActivityForm" method="POST">
+                {% csrf_token %}
+                <label for="activity">Select Activity:</label>
+                <select id="activity" name="activity" required>
+                    <option value="id.music">Music</option>
+                    <option value="id.games">Games</option>
+                    <option value="id.socmed">Social Media</option>
+                    <option value="id.draw">Drawing</option>
+                    <option value="id.cleaning">Cleaning</option>
+                    <option value="id.watch-movie">Watching Movies</option>
+                    <option value="od.gym">Gym</option>
+                    <option value="od.socialize">Socializing</option>
+                    <option value="od.road-trip">Road Trips</option>
+                    <option value="od.shopping">Shopping</option>
+                    <option value="od.photography">Photography</option>
+                    <option value="od.nature-walk">Nature Walks</option>
+                </select>
+                <label for="datetime">Select Date and Time:</label>
+                <input type="datetime-local" id="datetime" name="datetime" required>
+                <button type="submit">Save Activity</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'homepage.js' %}"></script>
+</body>
+</html>

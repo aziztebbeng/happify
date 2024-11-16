@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Preferences</title>
+</head>
+<body>
+    <main>
+        <h1>Select Your Preferences</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <section>
+                <h2>Indoor Activities</h2>
+                <label><input type="checkbox" name="activities" value="id.music"> Music</label><br>
+                <label><input type="checkbox" name="activities" value="id.games"> Games</label><br>
+                <label><input type="checkbox" name="activities" value="id.socmed"> Social Media</label><br>
+                <label><input type="checkbox" name="activities" value="id.draw"> Drawing</label><br>
+                <label><input type="checkbox" name="activities" value="id.cleaning"> Cleaning</label><br>
+                <label><input type="checkbox" name="activities" value="id.watch-movie"> Watching Movies</label><br>
+            </section>
+
+            <section>
+                <h2>Outdoor Activities</h2>
+                <label><input type="checkbox" name="activities" value="od.gym"> Gym</label><br>
+                <label><input type="checkbox" name="activities" value="od.socialize"> Socializing</label><br>
+                <label><input type="checkbox" name="activities" value="od.road-trip"> Road Trips</label><br>
+                <label><input type="checkbox" name="activities" value="od.shopping"> Shopping</label><br>
+                <label><input type="checkbox" name="activities" value="od.photography"> Photography</label><br>
+                <label><input type="checkbox" name="activities" value="od.nature-walk"> Nature Walks</label><br>
+            </section>
+
+            <input type="submit" value="Save Preferences">
+        </form>
+    </main>
+</body>
+</html>
